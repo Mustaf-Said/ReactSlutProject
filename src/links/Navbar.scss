@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #e1dcc5;
+}
+
+.searchFlt {
+  display: flex;
+  flex-direction: row;
+
+  h3 {
+    margin-right: 9px;
+  }
+}
