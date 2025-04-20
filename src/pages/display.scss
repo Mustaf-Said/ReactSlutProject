@@ -5,28 +5,17 @@
 }
 
 .display {
-  /*   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  width: 100%;
-  grid-template-areas: "sameAuthor sameAuthor"
-    "displayMore displayMore"
-  ; */
+
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   .sameAuthor {
-    grid-area: sameAuthor;
-    background: rgb(153, 164, 224);
     width: 100%;
-    height: 25vh;
+
   }
 
   .displayMore {
-    grid-area: displayMore;
-    background: rgb(187, 232, 203);
     width: 100%;
-    height: 25vh;
   }
 }

@@ -4,8 +4,8 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 import ContextPrivider from './pages/ContextPrivider';
 import FetchData from './pages/FetchData';
-import Browse from './links/Browse';
-import MyBooks from './links/MyBooks';
+import MyBook from './links/MyBook';
+import MyFavorite from './links/MyFavorite';
 
 function App() {
 
@@ -16,8 +16,8 @@ function App() {
         {
           index: true, element: <Home />,
         },
-        { path: "browse", element: <Browse /> },
-        { path: "myBooks", element: <MyBooks /> },
+        { path: "myBook", element: <MyBook /> },
+        { path: "myFavorite", element: <MyFavorite /> },
         { path: "FetchData ", element: <FetchData /> }
 
 
