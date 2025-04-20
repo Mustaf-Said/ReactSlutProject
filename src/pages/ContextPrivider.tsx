@@ -2,9 +2,11 @@ import { createContext } from "react";
 import { useState } from "react";
 import { Books, BooksType } from "../type/Type";
 
+// Create a context for the book data
 export const MyContext = createContext<BooksType | null>(null);
 
 function ContextPrivider({ children }: { children: React.ReactNode }) {
+  // State to hold the book data and input value
   const [author, setAuthor] = useState<Books[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 

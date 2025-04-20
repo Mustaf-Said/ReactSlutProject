@@ -1,0 +1,31 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  /*  align-items: center;
+  justify-content: center; */
+  height: 100vh;
+  width: 100%;
+
+}
+
+.homeHeader {
+  font-size: 16px;
+  font-weight: 400;
+  color: #02598b;
+  margin-bottom: .5em;
+  margin: 1.75em 0 0 1.5em;
+  text-align: left;
+
+}
+
+.homeText1,
+.homeText2,
+.homeText3 {
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 400;
+  color: #02598b;
+  margin-bottom: .5em;
+  margin: 1.75em 0 0 1.5em;
+  text-align: left;
+}
