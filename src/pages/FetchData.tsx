@@ -50,15 +50,41 @@ function FetchData() {
           <p>No results found.</p>
         )}
       </section>
-      <section className="sameAuthor">
-        <hr />
-        <h3>More by this author</h3>
-      </section>
+      <div >
+        <p className="titleH3">More by this author</p>
+        <section className="sameAuthor">
+          {author.slice(1, 7).map((book) => (
+            <ul key={book.key}>
+              {book.has_fulltext && (
+                <div>
+                  {book.cover_i && (
+                    <img
+                      src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                      alt={book.title}
+                    />
+                  )}
+                  <li>
+                    Om Boken:{" "}
+                    <Link
+                      target="_blank"
+                      to={`${Api_Url}${book.key}/${book.title}`}
+                    >
+                      {book.title}
+                    </Link>
+                  </li>
+                </div>
+              )}
+            </ul>
+          ))}
+        </section>
+      </div>
+
 
       <section className="displayMore">
-        <h3>You might also like</h3>
-        <hr />
+        <p className="titleH3">You might also like</p>
+
       </section>
+
     </div>
   );
 }

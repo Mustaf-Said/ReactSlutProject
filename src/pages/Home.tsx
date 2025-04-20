@@ -14,7 +14,7 @@ function Home() {
 
   const { author } = context;
   console.log(author);
-  const book = author[5]
+
 
   return (
     <div className="homeContainer">
@@ -22,34 +22,37 @@ function Home() {
       <div>
         <p className="homeText1">Classic Books</p>
 
-        {book ? (
-          <ul key={book.key}>
-            {book.has_fulltext && (
-              <div>
-                <li><strong>Title:</strong> {book.title}</li>
-                <li><strong>Author:</strong> {Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</li>
-                {book.cover_i && (
-                  <img
-                    src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-                    alt={book.title}
-                  />
-                )}
-                <li>
-                  Om Boken:{" "}
-                  <Link
-                    target="_blank"
-                    to={`${Api_Url}${book.key}/${book.title}`}
-                  >
-                    {book.title}
-                  </Link>
-                </li>
+        {author.length > 0 ? (
+          author.map((book) => (
+            <ul key={book.key}>
+              {book.has_fulltext && (
+                <div>
+                  <li><strong>Title:</strong> {book.title}</li>
+                  <li><strong>Author:</strong> {Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</li>
+                  {book.cover_i && (
+                    <img
+                      src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                      alt={book.title}
+                    />
+                  )}
+                  <li>
+                    Om Boken:{" "}
+                    <Link
+                      target="_blank"
+                      to={`${Api_Url}${book.key}/${book.title}`}
+                    >
+                      {book.title}
+                    </Link>
+                  </li>
 
-              </div>
-            )}
-          </ul>
+                </div>
+              )}
+            </ul>
+          ))
         ) : (
           <p>No results found.</p>
         )}
+
       </div>
 
       <div >
