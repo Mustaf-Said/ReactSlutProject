@@ -8,14 +8,14 @@ function Layout() {
     <div>
 
       <Navbar />
-      <div style={{ border: "1px solid #8a8b8b", borderRadius: "5px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}>
-        <main>
-          <Outlet />
-        </main>
 
-        <Footer />
+      <main style={{ border: "1px solid rgb(163, 164, 164)", borderRadius: "2px", boxShadow: "1px 5px 10px 0 #2c2a26;" }}>
+        <Outlet />
+      </main>
 
-      </div>
+      <Footer />
+
+
     </div>
   );
 }

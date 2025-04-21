@@ -15,7 +15,42 @@
   margin-bottom: .5em;
   margin: 1.75em 0 0 1.5em;
   text-align: left;
+  height: auto;
 
+}
+
+.ClassicBooks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #e1dcc5;
+  height: 50vh;
+
+  img {
+    margin: 0 1rem;
+    box-shadow: 1px 2px 5px 0 #c3b683;
+    border-radius: 3px;
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  button {
+    padding: 8px 40px;
+    overflow: hidden;
+    background-color: #0376b8;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: .5em;
+  }
+
+  button:hover {
+    color: #02598b;
+  }
 }
 
 .homeText1,
@@ -25,7 +60,6 @@
   font-size: 16px;
   font-weight: 400;
   color: #02598b;
-  margin-bottom: .5em;
-  margin: 1.75em 0 0 1.5em;
+  margin: 1.75em 0 .7rem 1.5em;
   text-align: left;
 }

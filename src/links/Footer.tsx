@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div style={{ backgroundColor: " #e1dcc5", padding: "1rem", marginTop: "1rem", textAlign: "center" }}>
+    <div style={{ backgroundColor: " #e1dcc5", padding: "1rem", textAlign: "center" }}>
       <footer>
         <p>© 2023 Book Finder. All rights reserved.</p>
         <p>Book App is a web application that helps you find books based on your preferences.</p>

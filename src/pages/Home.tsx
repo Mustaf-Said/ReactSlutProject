@@ -19,16 +19,16 @@ function Home() {
   return (
     <div className="homeContainer">
       <p className="homeHeader">Welcome to My Open Library app!</p>
-      <div>
-        <p className="homeText1">Classic Books</p>
+      <p className="homeText1">Classic Books</p>
+      <div className="ClassicBooks">
 
         {author.length > 0 ? (
           author.map((book) => (
             <ul key={book.key}>
               {book.has_fulltext && (
                 <div>
-                  <li><strong>Title:</strong> {book.title}</li>
-                  <li><strong>Author:</strong> {Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</li>
+                  {/* <li><strong>Title:</strong> {book.title}</li>
+                  <li><strong>Author:</strong> {Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</li> */}
                   {book.cover_i && (
                     <img
                       src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
@@ -36,12 +36,13 @@ function Home() {
                     />
                   )}
                   <li>
-                    Om Boken:{" "}
+                    {/*   Om Boken:{" "} */}
                     <Link
                       target="_blank"
                       to={`${Api_Url}${book.key}/${book.title}`}
                     >
-                      {book.title}
+                      {/*  {book.title} */}
+                      <button>Borrow</button>
                     </Link>
                   </li>
 

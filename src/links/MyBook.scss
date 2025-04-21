@@ -1,8 +1,28 @@
 .myBookContainer {
   width: 100%;
-  /*   border: #8a8b8b solid 1px; */
+
+
+  h1 {
+    color: #333;
+    font-size: 32px;
+    overflow-wrap: break-word;
+    margin: 10px 0 0;
+
+  }
 
   p {
     padding: 1em 0 0 0;
+
+  }
+
+
+}
+
+.myBookFooterImg {
+  img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+
   }
 }
