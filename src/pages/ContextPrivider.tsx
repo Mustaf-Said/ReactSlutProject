@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState } from "react";
 import { Books, BooksType } from "../type/Type";
-
+import "./display.scss";
 // Create a context for the book data
 export const MyContext = createContext<BooksType | null>(null);
 
@@ -9,7 +9,8 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
   // State to hold the book data and input value
   const [author, setAuthor] = useState<Books[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
-
+  const [toggle, setToggle] = useState(false);
+  const [favorites, setFavorites] = useState<string[]>([]);
   // Fetch data (called manually)
   const fetchData = async (Books: string) => {
     try {
@@ -45,6 +46,17 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
     setAuthor(delTitlle);
   };
 
+  // Toggle handler (for description)
+  const toggleHandler = () => {
+    setToggle((prev) => !prev);
+  };
+
+  //set favoritmark.
+  const toggleFavorite = (bookId: string) => {
+    setFavorites(prev =>
+      prev.includes(bookId) ? prev.filter(id => id !== bookId) : [...prev, bookId]
+    );
+  };
   return (
     <MyContext.Provider
       value={{
@@ -52,7 +64,10 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
         deleteHandler,
         handleInputChange,
         handleSearchSubmit,
-        inputValue
+        inputValue,
+        toggle, setToggle,
+        toggleHandler, toggleFavorite,
+        favorites
       }}
     >
       {children}

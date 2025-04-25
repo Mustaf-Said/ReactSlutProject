@@ -1,14 +1,16 @@
 import "./display.scss";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "./ContextPrivider";
 import { Link } from "react-router-dom";
 
 
 
+
 export const Api_Url = `https://openlibrary.org`;
 
 function FetchData() {
-  const [toggle, setToggle] = useState(false);
   const [description, setDescription] = useState<string | null>(null);
   const context = useContext(MyContext);
   if (!context) {
@@ -16,12 +18,11 @@ function FetchData() {
     return context;
   }
 
-  const { author, /* deleteHandler */ } = context;
-  const toggleHandler = () => {
-    setToggle((prev) => !prev);
-  };
+  const { author, toggle, toggleHandler, favorites, toggleFavorite } = context;
+
   // Only display the first book.
   const book = author[0];
+
   //Display discription of the book.
   useEffect(() => {
     if (author && author.length > 0) {
@@ -35,7 +36,7 @@ function FetchData() {
                 : data.description.value
             );
           } else {
-            setDescription("No description available.");
+            setDescription("This work doesn't have a description yet.");
           }
         })
         .catch((error) => {
@@ -58,7 +59,6 @@ function FetchData() {
                 />
               )}
               <p>
-                {/*  Om Boken:{" "} */}
                 <Link
                   target="_blank"
                   to={`${Api_Url}${book.key}/${book.title}`}
@@ -67,6 +67,10 @@ function FetchData() {
                   <button>Borrow</button>
                 </Link>
               </p>
+              <button onClick={() => toggleFavorite(book.key)}
+                className="favoriteButton">
+                {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
+              </button>
             </div>
             <div className="authorDetails">  {book.has_fulltext && (
               <div >
@@ -75,9 +79,9 @@ function FetchData() {
                 <p className="authorName" >by <span>{Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</span></p>
                 <div className={toggle ? "expanded" : "clamped"}>
                   {description || "Loading description..."}
-                  {/*    <button>Read more ▾</button> */}
                 </div>
-                <button onClick={toggleHandler}>
+                <button onClick={toggleHandler}
+                  className="readMoreButton">
                   {toggle ? "Read less ▲" : "Read more ▾"}
                 </button>
               </div>
@@ -111,6 +115,11 @@ function FetchData() {
                     <button>Borrow</button>
                   </Link>
                 </p>
+                <button className="favoriteButton"
+                  onClick={() => toggleFavorite(book.key)}>
+
+                  {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
+                </button  >
               </div>
             )}
           </div>
