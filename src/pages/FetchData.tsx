@@ -4,6 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "./ContextPrivider";
 import { Link } from "react-router-dom";
+import MyFavorite from "../links/MyFavorite";
 
 
 
@@ -63,14 +64,14 @@ function FetchData() {
                   target="_blank"
                   to={`${Api_Url}${book.key}/${book.title}`}
                 >
-                  {/*    {book.title} */}
                   <button>Borrow</button>
                 </Link>
               </p>
-              <button onClick={() => toggleFavorite(book.key)}
+              {<button onClick={() => toggleFavorite(book.key)}
                 className="favoriteButton">
                 {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
-              </button>
+              </button>}
+              {/* <MyFavorite /> */}
             </div>
             <div className="authorDetails">  {book.has_fulltext && (
               <div >
@@ -106,18 +107,16 @@ function FetchData() {
                   />
                 )}
                 <p>
-                  {/*   Om Boken:{" "} */}
+
                   <Link
                     target="_blank"
                     to={`${Api_Url}${book.key}/${book.title}`}
                   >
-                    {/*  {book.title} */}
                     <button>Borrow</button>
                   </Link>
                 </p>
                 <button className="favoriteButton"
                   onClick={() => toggleFavorite(book.key)}>
-
                   {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
                 </button  >
               </div>
