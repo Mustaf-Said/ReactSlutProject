@@ -1,8 +1,6 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
-  /*  align-items: center;
-  justify-content: center; */
   height: auto;
   width: 100%;
   background-color: #fff;
@@ -21,9 +19,7 @@
 
   .BooksContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /*  flex-direction: row; */
+    flex-direction: row;
     flex-wrap: wrap;
     background-color: #e1dcc5;
     height: auto;
@@ -31,41 +27,59 @@
     padding: 3rem;
     border-radius: .5rem;
 
-    /*  ul {
+    ul {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-    } */
+      flex-wrap: wrap;
+      align-items: center;
+      /* border: 1px solid #0376b8; */
+      margin: 9px;
+      width: 20%;
+      pad: auto;
+      padding: 9px 0;
+      min-width: 200px;
 
-    img {
-      margin: 0 1rem;
-      box-shadow: 1px 2px 5px 0 #c3b683;
-      border-radius: 3px;
-      max-width: 100%;
-      max-height: 200px;
-    }
+      img {
+        /*    margin: 0 1rem; */
+        box-shadow: 1px 2px 5px 0 #c3b683;
+        border-radius: 3px;
+        max-width: 100%;
+        max-height: 200px;
+      }
 
-    button {
-      padding: 8px 40px;
-      overflow: hidden;
-      background-color: #0376b8;
-      color: #fff;
-      border: 0;
-      border-radius: 5px;
-      cursor: pointer;
-      text-align: center;
-      margin-top: .5em;
-      margin-left: 0;
-    }
+      button {
+        padding: 8px 40px;
+        overflow: hidden;
+        background-color: #0376b8;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: .5em;
 
-    button:hover {
-      color: #02598b;
-    }
+      }
 
-    .favoriteButton {
-      background-color: #e1dcc5;
-      font-size: 2rem;
-      color: #0376b8;
-      margin: 0;
+      button:hover {
+        color: #02598b;
+      }
+
+      .favoriteButton {
+        background-color: #e1dcc5;
+        font-size: 2rem;
+        color: #0376b8;
+        margin: 0;
+      }
+
+      .readButton {
+        background-color: #fff;
+        border: 1px solid #0376b8;
+        width: 88%;
+        font-size: 1.5rem;
+        padding: 5px 0 0 0;
+        margin: 0;
+      }
     }
   }
 
@@ -79,4 +93,5 @@
     margin: 1.75em 0 .7rem 1.5em;
     text-align: left;
   }
+
 }

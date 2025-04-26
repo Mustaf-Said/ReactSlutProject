@@ -1,0 +1,78 @@
+.favoriteBooks {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+
+  .favoriteSection {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+  }
+
+  .readingSection {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+  }
+
+  ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+
+    li {
+      width: 200px;
+    }
+
+    img {
+      width: 100px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin: .5em 0;
+    }
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    width: 95%;
+    color: #0376b8;
+    margin: 1em auto;
+  }
+
+  .favoriteBook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .readButton {
+      background-color: #fff;
+      border: 1px solid #0376b8;
+      width: 48%;
+      font-size: 1rem;
+      border-radius: 5px;
+      padding: 5px 0 0 0;
+      margin: 0;
+    }
+  }
+
+}
+
+hr {
+  width: 100%;
+  margin: auto;
+  color: black;
+  padding-top: 2.6rem;
+  margin: 0;
+  background-color: #e1dcc5;
+  border: none;
+}

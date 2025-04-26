@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface Books {
   key: string;
   has_fulltext: boolean;
@@ -6,12 +8,12 @@ export interface Books {
   author_name: string;
   first_publish_year: number;
   total_pages?: number;
-  /*  favorites: string[]; */
 }
 
 export interface BooksType {
   author: Books[];
   favorites: string[];
+  reading: string[];
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   inputValue: string;
   deleteHandler: (key: string) => void;
@@ -20,5 +22,6 @@ export interface BooksType {
   setToggle: React.Dispatch<React.SetStateAction<boolean>>;
   toggleHandler: () => void;
   toggleFavorite: (bookId: string) => void;
-
+  toggleReading: (bookId: string) => void;
+  renderStars: (bookId: string) => JSX.Element;
 }

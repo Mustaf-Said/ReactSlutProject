@@ -1,6 +1,8 @@
 import "./home.scss";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { FcReading } from "react-icons/fc";
+import { FaBookReader } from "react-icons/fa";
 import { useContext } from "react";
 import { MyContext } from "./ContextPrivider";
 import { Api_Url } from "./FetchData";
@@ -14,8 +16,9 @@ function Home() {
     return context;
   }
 
-  const { author, toggleFavorite, favorites } = context;
-  console.log(author);
+  const { author, toggleFavorite, favorites
+    , toggleReading, reading } = context;
+
 
 
   return (
@@ -26,9 +29,7 @@ function Home() {
           author.map((book) => (
             <ul key={book.key}>
               {book.has_fulltext && (
-                <div>
-                  {/* <li><strong>Title:</strong> {book.title}</li>
-                  <li><strong>Author:</strong> {Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</li> */}
+                <div key={book.key}>
                   {book.cover_i && (
                     <img
                       src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
@@ -50,12 +51,17 @@ function Home() {
                     className="favoriteButton">
                     {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
                   </button>
+                  {<button onClick={() => toggleReading(book.key)}
+                    className="readButton">
+                    {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
+                  </button>}
                 </div>
               )}
             </ul>
           ))
         ) : (
-          <p>No results found.</p>
+          /*  <p>No results found.</p> */
+          null
         )}
 
       </div>

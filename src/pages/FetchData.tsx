@@ -1,10 +1,12 @@
 import "./display.scss";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { FcReading } from "react-icons/fc";
+import { FaBookReader } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "./ContextPrivider";
 import { Link } from "react-router-dom";
-import MyFavorite from "../links/MyFavorite";
+
 
 
 
@@ -19,7 +21,9 @@ function FetchData() {
     return context;
   }
 
-  const { author, toggle, toggleHandler, favorites, toggleFavorite } = context;
+  const { author, toggle, toggleHandler, favorites, toggleFavorite,
+    reading, toggleReading } = context;
+
 
   // Only display the first book.
   const book = author[0];
@@ -71,7 +75,10 @@ function FetchData() {
                 className="favoriteButton">
                 {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
               </button>}
-              {/* <MyFavorite /> */}
+              {<button onClick={() => toggleReading(book.key)}
+                className="readButton">
+                {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
+              </button>}
             </div>
             <div className="authorDetails">  {book.has_fulltext && (
               <div >
@@ -97,7 +104,7 @@ function FetchData() {
       <p className="titleH3">More by this author</p>
       <section className="sameAuthor">
         {author.slice(1, 7).map((book) => (
-          <div key={book.key}>
+          <div key={book.key} className="imgsDetails">
             {book.has_fulltext && (
               <div>
                 {book.cover_i && (
@@ -119,18 +126,15 @@ function FetchData() {
                   onClick={() => toggleFavorite(book.key)}>
                   {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
                 </button  >
+                {<button onClick={() => toggleReading(book.key)}
+                  className="readButton">
+                  {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
+                </button>}
               </div>
             )}
           </div>
         ))}
       </section>
-      {/* 
-
-
-      <section className="displayMore">
-        <p className="titleH3">You might also like</p>
-
-      </section> */}
 
     </div>
   );
