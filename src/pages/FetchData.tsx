@@ -71,7 +71,7 @@ function FetchData() {
             setLanguages(
               Array.isArray(data.entries[0].languages)
                 ? data.entries[0].languages.map((lang: { key: string; }) => lang.key.replace("/languages/", "")).join(", ")
-                : null
+                : "English"
             );
           }
         })
@@ -111,42 +111,50 @@ function FetchData() {
               </button>}
               {reading.includes(book.key) && <div className="ratingStars" >Betyg: {renderStars(book.key)}</div>}
             </div>
+            <div className="displayBookDetails">
+              <div className="authorDetails">  {book.has_fulltext && (
+                <div >
 
-            <div className="authorDetails">  {book.has_fulltext && (
-              <div >
-
-                <h1> {book.title}</h1>
-                <p className="authorName" >by <span>{Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</span></p>
-                <div className={toggle ? "expanded" : "clamped"}>
-                  {description || "Loading description..."}
+                  <h1> {book.title}</h1>
+                  <p className="authorName" >by <span>{Array.isArray(book.author_name) ? book.author_name.join(", ") : book.author_name}</span></p>
+                  <div className={toggle ? "expanded" : "clamped"}>
+                    {description || "Loading description..."}
+                  </div>
+                  <button onClick={toggleHandler}
+                    className="readMoreButton">
+                    {toggle ? "Read less ▲" : "Read more ▾"}
+                  </button>
                 </div>
-                <button onClick={toggleHandler}
-                  className="readMoreButton">
-                  {toggle ? "Read less ▲" : "Read more ▾"}
-                </button>
+              )}
               </div>
-            )}
-            </div>
-            <div>
-
-              <div className="aboutBook">
+              <div className="aboutBookDetails">
                 {number_of_pages && (
                   <p>
-                    <strong>Number of Pages:</strong>{" "}
-                    {number_of_pages || null}
+                    Pages{" "}
+                    <br />
+                    <span>
+                      {number_of_pages || null}
+                    </span>
                   </p>)}
                 {publish_date && (
                   <p>
-                    <strong>Publish Date:</strong>{" "}
-                    {publish_date || null}
+                    Publish Date{" "}
+                    <br />
+                    <span>
+                      {publish_date || null}
+                    </span>
                   </p>
                 )}
                 {languages && (
                   <p>
-                    <strong>Languages:</strong>{" "}
-                    {languages || null}
+                    Languages{" "}
+                    <br />
+                    <span>
+                      {languages || null}
+                    </span>
                   </p>
                 )}
+
               </div>
             </div>
           </div>
