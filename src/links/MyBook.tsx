@@ -3,9 +3,12 @@ import { useContext } from "react";
 import FetchData from "../pages/FetchData";
 import { MyContext } from "../pages/ContextPrivider";
 import footerIMg from "../imgs/footer.png";
-function MyBook() {
-  const context = useContext(MyContext);
+export const Api_Url = `https://openlibrary.org`;
 
+
+function MyBook() {
+
+  const context = useContext(MyContext);
 
   if (!context) {
     console.log("Something went wrong");
@@ -13,11 +16,16 @@ function MyBook() {
   }
   const { author } = context;
 
-
   return (
     <div>
       <div className="myBookContainer">
         {author.length > 0 ? <FetchData /> : null}
+      </div>
+      <div>
+        {author.map((book) => (
+          <div className="myBook" key={book.key}>
+          </div>
+        ))}
 
 
       </div>

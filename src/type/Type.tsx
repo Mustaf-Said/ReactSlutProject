@@ -6,8 +6,11 @@ export interface Books {
   cover_i: number;
   title: string;
   author_name: string;
-  first_publish_year: number;
-  total_pages?: number;
+  first_publish_year: string;
+  number_of_pages?: string;
+  publish_date?: string;
+  languages?: string[];
+
 }
 
 export interface BooksType {

@@ -15,6 +15,10 @@ export const Api_Url = `https://openlibrary.org`;
 
 function FetchData() {
   const [description, setDescription] = useState<string | null>(null);
+  const [number_of_pages, setNumber_of_pages] = useState<string | null>(null);
+  const [publish_date, setPublish_date] = useState<string | null>(null);
+  const [languages, setLanguages] = useState<string | null>(null);
+
   const context = useContext(MyContext);
   if (!context) {
     console.log("Something went wrong");
@@ -22,7 +26,7 @@ function FetchData() {
   }
 
   const { author, toggle, toggleHandler, favorites, toggleFavorite,
-    reading, toggleReading } = context;
+    reading, toggleReading, renderStars } = context;
 
 
   // Only display the first book.
@@ -40,7 +44,8 @@ function FetchData() {
                 ? data.description
                 : data.description.value
             );
-          } else {
+          }
+          else {
             setDescription("This work doesn't have a description yet.");
           }
         })
@@ -50,7 +55,32 @@ function FetchData() {
         });
     }
   }, [author]);
-
+  //Fetch number of pages and publish date of the book.
+  useEffect(() => {
+    if (author && author.length > 0) {
+      fetch(`${Api_Url}${author[0].key}/editions.json`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data.entries && data.entries[0]?.number_of_pages) {
+            setNumber_of_pages(data.entries[0].number_of_pages.toString());
+          } else {
+            setNumber_of_pages(null);
+          } if (data && data.entries && data.entries[0]?.publish_date) {
+            setPublish_date(data.entries[0].publish_date.toString());
+          } if (data && data.entries && data.entries[0]?.languages) {
+            setLanguages(
+              Array.isArray(data.entries[0].languages)
+                ? data.entries[0].languages.map((lang: { key: string; }) => lang.key.replace("/languages/", "")).join(", ")
+                : null
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setPublish_date("Failed to fetch number of pages.");
+        });
+    }
+  }, [author]);
   return (
     <div className="display">
       <section >
@@ -79,7 +109,9 @@ function FetchData() {
                 className="readButton">
                 {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
               </button>}
+              {reading.includes(book.key) && <div className="ratingStars" >Betyg: {renderStars(book.key)}</div>}
             </div>
+
             <div className="authorDetails">  {book.has_fulltext && (
               <div >
 
@@ -94,6 +126,28 @@ function FetchData() {
                 </button>
               </div>
             )}
+            </div>
+            <div>
+
+              <div className="aboutBook">
+                {number_of_pages && (
+                  <p>
+                    <strong>Number of Pages:</strong>{" "}
+                    {number_of_pages || null}
+                  </p>)}
+                {publish_date && (
+                  <p>
+                    <strong>Publish Date:</strong>{" "}
+                    {publish_date || null}
+                  </p>
+                )}
+                {languages && (
+                  <p>
+                    <strong>Languages:</strong>{" "}
+                    {languages || null}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         ) : (
@@ -130,6 +184,7 @@ function FetchData() {
                   className="readButton">
                   {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
                 </button>}
+                {reading.includes(book.key) && <div className="ratingStars">Betyg: {renderStars(book.key)}</div>}
               </div>
             )}
           </div>

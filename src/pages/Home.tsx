@@ -17,7 +17,7 @@ function Home() {
   }
 
   const { author, toggleFavorite, favorites
-    , toggleReading, reading } = context;
+    , toggleReading, reading, renderStars } = context;
 
 
 
@@ -55,6 +55,7 @@ function Home() {
                     className="readButton">
                     {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
                   </button>}
+                  {reading.includes(book.key) && <div className="ratingStars" >Betyg: {renderStars(book.key)}</div>}
                 </div>
               )}
             </ul>

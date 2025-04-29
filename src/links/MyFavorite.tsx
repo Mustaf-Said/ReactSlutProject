@@ -43,6 +43,7 @@ function MyFavorite() {
                 >
                   {reading.includes(book.key) ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
                 </button>
+                {reading.includes(book.key) && <div>Betyg: {renderStars(book.key)}</div>}
               </li>
             ))}
         </ol>
@@ -51,7 +52,7 @@ function MyFavorite() {
       <div className="readingSection">
         <hr />
         <section className="header">
-          <h2>My Reading Book List</h2> <FcReading style={{ fontSize: "2em" }} />
+          <h2>My Read Book List</h2> <FcReading style={{ fontSize: "2em" }} />
         </section>
         <ol>
           {author

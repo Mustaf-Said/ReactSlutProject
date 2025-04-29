@@ -23,14 +23,11 @@ function Navbar() {
   const navLinks = [
     { to: "/", label: <img src={Home} alt="myneLista" className="home-icon" /> },
     { to: "/MyBook", label: "My Book" },
-    { to: "/MyFavorite", label: "My Favorite List" },
+    { to: "/MyFavorite", label: "My List" },
   ];
   const NavStyle = {
     color: "black",
-    padding: "9px",
-    backgroundColor: "lightyellow",
-    textDecoration: "none",
-    borderRadius: "5px",
+    textDecoration: "underline",
   };
   return (
     <div className="nav">

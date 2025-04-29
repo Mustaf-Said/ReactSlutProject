@@ -28,4 +28,17 @@ body {
   ul {
     list-style: none;
   }
+
+  .ratingStars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+      padding: 5px;
+      width: auto;
+
+    }
+  }
 }

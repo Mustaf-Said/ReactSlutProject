@@ -44,7 +44,7 @@
         /*    margin: 0 1rem; */
         box-shadow: 1px 2px 5px 0 #c3b683;
         border-radius: 3px;
-        max-width: 100%;
+        width: 100%;
         max-height: 200px;
       }
 
@@ -58,7 +58,7 @@
         cursor: pointer;
         text-align: center;
         margin-top: .5em;
-
+        width: 100%;
       }
 
       button:hover {
@@ -70,12 +70,14 @@
         font-size: 2rem;
         color: #0376b8;
         margin: 0;
+        width: 100%;
+        padding: 5px 0 0 0;
       }
 
       .readButton {
         background-color: #fff;
         border: 1px solid #0376b8;
-        width: 88%;
+        width: 100%;
         font-size: 1.5rem;
         padding: 5px 0 0 0;
         margin: 0;

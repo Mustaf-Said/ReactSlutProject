@@ -23,7 +23,7 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
       const res = await fetch(`https://openlibrary.org/search.json?title=${Books}`);
       const data = await res.json();
       setAuthor(data.docs);
-      console.log(data.docs);
+      /* console.log(data.docs); */
     } catch (error) {
       console.log(error, "Something went wrong with fetching the data.");
     }
