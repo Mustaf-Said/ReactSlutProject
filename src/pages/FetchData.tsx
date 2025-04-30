@@ -163,7 +163,7 @@ function FetchData() {
         )}
       </section>
 
-      <p className="titleH3">More by this author</p>
+      <p className="titleH3">Other books with the same title</p>
       <section className="sameAuthor">
         {author.slice(1, 7).map((book) => (
           <div key={book.key} className="imgsDetails">

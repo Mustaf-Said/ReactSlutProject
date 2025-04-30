@@ -20,10 +20,10 @@ body {
   margin: 0 auto;
   background-color: #fff;
 
-  a {
+  /*   a {
     text-decoration: none;
     color: #000;
-  }
+  } */
 
   ul {
     list-style: none;
@@ -40,5 +40,36 @@ body {
       width: auto;
 
     }
+  }
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* padding: 10px; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #e1dcc5;
+  /* text-align: center; */
+  width: 100%;
+
+  p {
+    a {
+      color: #02598b;
+    }
+  }
+
+  section {
+    padding: 1em;
+
+    p {
+      a {
+        color: #02598b;
+        text-decoration: none;
+      }
+    }
+
+
   }
 }
