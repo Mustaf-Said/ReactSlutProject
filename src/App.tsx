@@ -6,6 +6,7 @@ import ContextPrivider from './pages/ContextPrivider';
 import FetchData from './pages/FetchData';
 import MyBook from './links/MyBook';
 import MyFavorite from './links/MyFavorite';
+import Footer from './links/Footer';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         },
         { path: "myBook", element: <MyBook /> },
         { path: "myFavorite", element: <MyFavorite /> },
-        { path: "FetchData ", element: <FetchData /> }
+        { path: "FetchData ", element: <FetchData /> },
+        { path: "footer ", element: <Footer /> }
 
 
       ]

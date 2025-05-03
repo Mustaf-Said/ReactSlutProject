@@ -1,11 +1,15 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../pages/ContextPrivider";
 import Mynen from "../imgs/mynen.png";
 import Home from "../imgs/home.png";
 
 function Navbar() {
+  const [mynenToggle, setMynenToggle] = useState(false);
+  const handleMynenToggle = () => {
+    setMynenToggle(!mynenToggle);
+  };
   const context = useContext(MyContext);
   const navigate = useNavigate();
   if (!context) {
@@ -19,15 +23,21 @@ function Navbar() {
     navigate("/MyBook");
   };
 
+
+
   // display links
   const navLinks = [
     { to: "/", label: <img src={Home} alt="myneLista" className="home-icon" /> },
     { to: "/MyBook", label: "My Book" },
-    { to: "/MyFavorite", label: "My List" },
+    { to: "/myFavorite", label: "My List" },
   ];
   const NavStyle = {
-    color: "black",
-    textDecoration: "underline",
+    transform: "scale(1.1)",
+    cursor: "pointer",
+    boxShadow: "0 0 5px #fff",
+    textDecoration: "none",
+    color: "#555353",
+    padding: "0.5rem",
   };
   return (
     <div className="nav">
@@ -55,7 +65,22 @@ function Navbar() {
         <button type="submit">Search 🔍</button>
       </form>
 
-      <img src={Mynen} alt="myneLista" className="mynen-icon" />
+      <img src={Mynen} alt="myneLista" className="mynen-icon"
+        onClick={handleMynenToggle} />
+      <div className="mynen-toggle" onClick={handleMynenToggle}>
+        {mynenToggle && (
+          <ul className="mynen-toggle-content">
+            <li><Link to={"/"}>HOME</Link></li>
+            <li><Link to={"/myFavorite"}>MY LIST</Link></li>
+            <li><Link to={"/MyBook"}>MY BOOK</Link></li>
+            <li>
+              <a href="#footer" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>
+                CONTACT<br /> US
+              </a>
+            </li>
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

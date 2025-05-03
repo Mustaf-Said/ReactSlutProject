@@ -7,11 +7,67 @@
   background-color: #e1dcc5;
   padding: 1rem 0;
   font-size: large;
+
+  img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0 0 5px #fff;
+  }
+
 }
 
 .searchFlt {
   display: flex;
   flex-direction: row;
+  gap: 3px;
+
+  input {
+    width: 300px;
+    height: 37px;
+    /* text-align: center; */
+    border: none;
+    border-radius: 3px;
+    padding-left: 1rem;
+
+    &:hover {
+      transform: scale(1.5);
+      transform-origin: right center;
+      animation: moveInput 0.5s ease-in-out;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px #fff;
+
+    }
+  }
+
+  @keyframes moveInput {
+    from {
+      transform: translateX(0px);
+    }
+
+    to {
+      transform: translateX(-50px);
+    }
+  }
+
+
+
+
+
+  button {
+    padding: 0 1em;
+    border: none;
+    border-radius: 3px;
+
+    &:hover {
+      opacity: 0.5;
+      cursor: pointer;
+      box-shadow: 0 0 5px #fff;
+      color: #0376b8;
+    }
+  }
 
   h3 {
     margin-right: 9px;
@@ -24,4 +80,46 @@
 
 .mynen-icon {
   width: 35px;
+}
+
+.mynen-toggle-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  /*  margin-left: 10px; */
+  position: absolute;
+  /*  border-top: 1px solid #a7a7a7; */
+  top: 18px;
+  right: 0;
+
+
+  li {
+    margin: 1rem auto;
+    text-align: center;
+    padding-right: .5rem;
+  }
+
+  /*  li:hover {
+    transform: scale(1.1);
+
+  }
+ */
+  a {
+    text-decoration: none;
+    color: #555353;
+    word-break: break-all;
+
+    &:hover {
+      color: #fff;
+      box-shadow: 0 0 5px #fff;
+    }
+
+  }
+
+  &:hover {
+    background-color: transparent;
+    border: none;
+
+  }
 }

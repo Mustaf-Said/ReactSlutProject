@@ -18,7 +18,11 @@ function FetchData() {
   const [number_of_pages, setNumber_of_pages] = useState<string | null>(null);
   const [publish_date, setPublish_date] = useState<string | null>(null);
   const [languages, setLanguages] = useState<string | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
 
+  const handleZoomImg = () => {
+    setIsZoomed((prev) => !prev);
+  };
   const context = useContext(MyContext);
   if (!context) {
     console.log("Something went wrong");
@@ -91,6 +95,8 @@ function FetchData() {
                 <img
                   src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
                   alt={book.title}
+                  className={`page ${isZoomed ? 'zoomed' : ''}`}
+                  onClick={handleZoomImg}
                 />
               )}
               <p>

@@ -21,10 +21,28 @@
     .imgDetails {
       display: flex;
       flex-direction: column;
+      perspective: 1000px; // Perspective for 3D effect
 
-      img {
+      .page {
         width: 170px;
+        transition: transform 0.8s ease;
+        transform-origin: left center; // Pivot like a page
+        backface-visibility: hidden;
+        position: relative;
 
+        &:hover {
+          transform: rotateY(-20deg); // Flip to the left like turning a page
+          opacity: 0.5;
+          cursor: pointer;
+        }
+
+        &.zoomed {
+          transform: scale(2);
+          z-index: 10;
+          position: relative;
+          opacity: 1;
+          left: 5%;
+        }
       }
 
       .ratingStars {
