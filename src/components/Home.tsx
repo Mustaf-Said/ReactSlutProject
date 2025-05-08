@@ -5,7 +5,7 @@ import { FcReading } from "react-icons/fc";
 import { FaBookReader } from "react-icons/fa";
 import { useContext } from "react";
 import { MyContext } from "../context/ContextPrivider";
-import { Api_Url } from "./FetchData";
+import { API_URL } from "../hooks/useBookDetails";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -40,7 +40,7 @@ function Home() {
 
                     <Link
                       target="_blank"
-                      to={`${Api_Url}${book.key}/${book.title}`}
+                      to={`${API_URL}${book.key}/${book.title}`}
                     >
 
                       <button>Borrow</button>

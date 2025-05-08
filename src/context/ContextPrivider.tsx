@@ -16,6 +16,8 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [reading, setReading] = useState<string[]>([]);
   const [ratings, setRatings] = useState<{ [key: string]: number }>({});
+  const [isZoomed, setIsZoomed] = useState(false);
+
 
   // Fetch data (called manually)
   const fetchData = async (Books: string) => {
@@ -65,7 +67,6 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
   };
 
   //set reading mark.
-  //set favoritmark.
   const toggleReading = (bookId: string) => {
     setReading(prev =>
       prev.includes(bookId) ? prev.filter(id => id !== bookId) : [...prev, bookId]
@@ -78,6 +79,10 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
       ...prev,
       [bookId]: rating
     }));
+  };
+  //set imgZooming
+  const handleZoomImg = () => {
+    setIsZoomed((prev) => !prev);
   };
   // Function to render stars based on the rating.
   const renderStars = (bookId: string) => {
@@ -108,7 +113,8 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
         toggle, setToggle,
         toggleHandler, toggleFavorite,
         favorites, reading,
-        toggleReading, renderStars
+        toggleReading, renderStars,
+        handleZoomImg, isZoomed
       }}
     >
       {children}

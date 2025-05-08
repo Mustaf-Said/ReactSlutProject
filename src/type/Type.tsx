@@ -27,4 +27,6 @@ export interface BooksType {
   toggleFavorite: (bookId: string) => void;
   toggleReading: (bookId: string) => void;
   renderStars: (bookId: string) => JSX.Element;
+  isZoomed: boolean;
+  handleZoomImg: React.Dispatch<React.MouseEvent<HTMLImageElement, MouseEvent>>;
 }
