@@ -1,12 +1,12 @@
-import './App.scss'
+import './styles/App.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './layout/Layout';
-import Home from './pages/Home';
-import ContextPrivider from './pages/ContextPrivider';
-import FetchData from './pages/FetchData';
-import MyBook from './links/MyBook';
-import MyFavorite from './links/MyFavorite';
-import Footer from './links/Footer';
+import Home from './components/Home';
+import ContextPrivider from './context/ContextPrivider';
+import FetchData from './components/FetchData';
+import MyBook from './navbar/MyBook';
+import MyFavorite from './navbar/MyFavorite';
+import Footer from './components/Footer';
 
 
 function App() {

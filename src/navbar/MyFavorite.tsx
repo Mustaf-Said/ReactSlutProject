@@ -1,5 +1,5 @@
-import "./favoritesBook.scss";
-import { MyContext } from "../pages/ContextPrivider";
+import "../styles/favoritesBook.scss";
+import { MyContext } from "../context/ContextPrivider";
 import { useContext } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FcReading } from "react-icons/fc";

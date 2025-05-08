@@ -1,7 +1,7 @@
-import "./MyBook.scss"
+import "../styles/MyBook.scss"
 import { useContext } from "react";
-import FetchData from "../pages/FetchData";
-import { MyContext } from "../pages/ContextPrivider";
+import FetchData from "../components/FetchData";
+import { MyContext } from "../context/ContextPrivider";
 import footerIMg from "../imgs/footer.png";
 export const Api_Url = `https://openlibrary.org`;
 

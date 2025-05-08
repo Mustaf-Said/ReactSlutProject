@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./Navbar.scss";
+import "../styles/Navbar.scss";
 import { useContext, useState } from "react";
-import { MyContext } from "../pages/ContextPrivider";
+import { MyContext } from "../context/ContextPrivider";
 import Mynen from "../imgs/mynen.png";
 import Home from "../imgs/home.png";
 

@@ -1,7 +1,7 @@
+import "../styles/display.scss";
 import { createContext } from "react";
 import { useState } from "react";
 import { Books, BooksType } from "../type/Type";
-import "./display.scss";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 

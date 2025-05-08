@@ -1,10 +1,10 @@
-import "./home.scss";
+import "../styles/home.scss";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { FcReading } from "react-icons/fc";
 import { FaBookReader } from "react-icons/fa";
 import { useContext } from "react";
-import { MyContext } from "./ContextPrivider";
+import { MyContext } from "../context/ContextPrivider";
 import { Api_Url } from "./FetchData";
 import { Link } from "react-router-dom";
 
