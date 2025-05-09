@@ -1,4 +1,3 @@
-// hooks/useBookDetails.ts
 import { useState, useEffect } from "react";
 
 export const API_URL = "https://openlibrary.org";

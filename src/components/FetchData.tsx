@@ -23,8 +23,9 @@ function FetchData() {
     reading, toggleReading, renderStars, isZoomed, handleZoomImg } = context;
 
 
-  // Only display the first book.
+  // Första arrayen i data.
   const book = author[0];
+  //Olika data av bookDetials
   const { description, numberOfPages, publishDate, languages } = useBookDetails(book.key);
 
   return (
@@ -113,7 +114,7 @@ function FetchData() {
 
       <p className="titleH3">Other books with the same title</p>
       <section className="sameAuthor">
-        {author.slice(1, 7).map((book) => (
+        {author.filter(book => book && book.key && book.title).slice(1, 6).map((book) => (
           <BookCard
             key={book.key}
             book={book}

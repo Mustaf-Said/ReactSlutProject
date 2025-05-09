@@ -114,7 +114,7 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
         toggleHandler, toggleFavorite,
         favorites, reading,
         toggleReading, renderStars,
-        handleZoomImg, isZoomed
+        handleZoomImg, isZoomed,
       }}
     >
       {children}

@@ -26,27 +26,20 @@ function Home() {
       <p className="homeHeader">Welcome to My Open Library app!</p>
       <div className="BooksContainer">
         {author.length > 0 ? (
-          author.map((book) => (
-            <ul key={book.key}>
-              {book.has_fulltext && (
+          author
+            .filter((book) => book.has_fulltext && book.cover_i && book.title)
+            .map((book) => (
+              <ul key={book.key}>
                 <div key={book.key}>
-                  {book.cover_i && (
+                  {<li><Link
+                    target="_blank"
+                    to={`${API_URL}${book.key}/${book.title}`}
+                  >
                     <img
                       src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
                       alt={book.title}
                     />
-                  )}
-                  <li>
-
-                    <Link
-                      target="_blank"
-                      to={`${API_URL}${book.key}/${book.title}`}
-                    >
-
-                      <button>Borrow</button>
-                    </Link>
-
-                  </li>
+                  </Link></li>}
                   <button onClick={() => toggleFavorite(book.key)}
                     className="favoriteButton">
                     {favorites.includes(book.key) ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
@@ -57,11 +50,11 @@ function Home() {
                   </button>}
                   {reading.includes(book.key) && <div className="ratingStars" >Betyg: {renderStars(book.key)}</div>}
                 </div>
-              )}
-            </ul>
-          ))
+
+              </ul>
+            ))
         ) : (
-          /*  <p>No results found.</p> */
+
           null
         )}
 

@@ -214,6 +214,10 @@
         width: 100%;
         max-height: 200px;
         border-radius: 3px;
+
+        &:hover {
+          opacity: 0.3;
+        }
       }
 
       button {

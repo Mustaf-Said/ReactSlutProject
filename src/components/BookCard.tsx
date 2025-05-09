@@ -24,30 +24,27 @@ const BookCard: React.FC<BookCardProps> = ({
   renderStars,
 }) => {
   return (
+    /*  <div className="imgsDetails">
+       {book.has_fulltext && ( */
     <div className="imgsDetails">
-      {book.has_fulltext && (
-        <div>
-          {book.cover_i && (
-            <img
-              src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-              alt={book.title}
-            />
-          )}
-          <p>
-            <Link target="_blank" to={`https://openlibrary.org${book.key}/${book.title}`}>
-              <button>Borrow</button>
-            </Link>
-          </p>
-          <button className="favoriteButton" onClick={() => onToggleFavorite(book.key)}>
-            {isFavorite ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
-          </button>
-          <button className="readButton" onClick={() => onToggleReading(book.key)}>
-            {isReading ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
-          </button>
-          {isReading && <div className="ratingStars">Betyg: {renderStars(book.key)}</div>}
-        </div>
-      )}
+      <Link target="_blank" to={`https://openlibrary.org${book.key}/${book.title}`}>
+        {book.cover_i && (
+          <img
+            src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+            alt={book.title}
+          />
+        )}
+      </Link>
+      <button className="favoriteButton" onClick={() => onToggleFavorite(book.key)}>
+        {isFavorite ? <FaHeart style={{ color: "red" }} /> : <CiHeart />}
+      </button>
+      <button className="readButton" onClick={() => onToggleReading(book.key)}>
+        {isReading ? <FcReading /> : <FaBookReader style={{ color: "black" }} />}
+      </button>
+      {isReading && <div className="ratingStars">Betyg: {renderStars(book.key)}</div>}
     </div>
+    /*   )}
+    </div> */
   );
 };
 
