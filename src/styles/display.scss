@@ -13,22 +13,24 @@
   .displaySingleBook {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     width: 100%;
 
     .imgDetails {
       display: flex;
       flex-direction: column;
       perspective: 1000px; // Perspective for 3D effect
+      align-items: center;
 
       .page {
-        width: 170px;
+        width: 165px;
         transition: transform 0.8s ease;
         transform-origin: left center; // Pivot like a page
         backface-visibility: hidden;
         position: relative;
+        height: 40vh;
 
         &:hover {
           transform: rotateY(-20deg); // Flip to the left like turning a page
@@ -37,11 +39,12 @@
         }
 
         &.zoomed {
-          transform: scale(2);
-          z-index: 10;
+          transform: scale(1.8);
+          z-index: 1;
           position: relative;
           opacity: 1;
-          left: 5%;
+          /*  left: 25%; */
+
         }
       }
 
@@ -54,13 +57,17 @@
       .readButton {
         background-color: #fff;
         border: 1px solid #0376b8;
-        width: 87%;
+        width: 92%;
         font-size: 2rem;
-        padding: 0;
+        padding: 5px 0 0 0;
+
+        &:hover {
+          border: 0;
+        }
       }
 
       button {
-        padding: 10px 55px;
+        padding: 15px 55px;
         overflow: hidden;
         background-color: #0376b8;
         color: #fff;
@@ -68,7 +75,14 @@
         border-radius: 5px;
         cursor: pointer;
         text-align: center;
-        margin-left: .7rem;
+        /* margin-left: .7rem; */
+
+        &:hover {
+          color: #0376b8;
+          background-color: #fff;
+          font-weight: 600;
+
+        }
       }
 
       .favoriteButton {
@@ -77,6 +91,10 @@
         color: #0376b8;
         padding: 5px 0 0 0;
         margin: 0;
+
+        &:hover {
+          color: #a2b2ba;
+        }
       }
 
       img {
@@ -175,37 +193,55 @@
   }
 
   .sameAuthor {
-    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    /*  align-items: center; */
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 1rem;
+    padding: 2rem 0;
     height: auto;
-    gap: 1rem;
+    gap: 2rem 0;
+    width: 100%;
     background-color: #e1dcc5;
 
     .imgsDetails {
       display: flex;
       flex-direction: column;
+      /*  justify-content: center; */
+      flex-wrap: wrap;
       align-items: center;
-
+      /* border: 1px solid #0376b8; */
+      /*  margin-bottom: 2rem; */
+      /*   width: 20%; */
+      /* pad: auto; */
+      /* padding: 9px 0; */
+      min-width: 200px;
+      height: auto;
 
       .readButton {
         background-color: #fff;
         border: 1px solid #0376b8;
         width: 100%;
         font-size: 1.5rem;
-        padding: 5px 0 0 0;
+
+        /*  padding: 5px 0 0 0; */
+        &:hover {
+          border: none;
+          background-color: #e1dcc5;
+        }
       }
 
       .favoriteButton {
         background-color: #e1dcc5;
         font-size: 2rem;
         color: #0376b8;
-        width: 100%;
-        padding: 5px 0 0 0;
+        /*   width: 100%; */
+        padding: 0;
+        margin-top: auto;
+
+        &:hover {
+          color: #fff;
+        }
       }
 
       img {
@@ -221,15 +257,14 @@
       }
 
       button {
-        padding: 8px 40px;
+        padding: 8px;
         overflow: hidden;
         background-color: #0376b8;
-        color: #fff;
+        color: #0376b8;
         border: 0;
         border-radius: 5px;
         cursor: pointer;
-        text-align: center;
-        width: 100%;
+        max-width: 80%;
       }
     }
   }

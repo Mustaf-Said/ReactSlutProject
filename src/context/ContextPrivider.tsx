@@ -93,7 +93,7 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
         {[1, 2, 3, 4, 5].map(star => (
           <button
             key={star}
-            onClick={() => setRating(bookId, star)}
+            onClick={() => setRating(bookId, currentRating === star ? 0 : star)}
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
             {star <= currentRating ? <FaStar color="gold" /> : <FaRegStar />}
