@@ -21,14 +21,7 @@ function MyBook() {
       <div className="myBookContainer">
         {author.length > 0 ? <FetchData /> : null}
       </div>
-      {/*   <div>
-        {author.map((book) => (
-          <div className="myBook" key={book.key}>
-          </div>
-        ))}
 
-
-      </div> */}
       <div className="myBookFooterImg">
         <img src={footerIMg} alt="footer-img" />
       </div>

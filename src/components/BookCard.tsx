@@ -24,8 +24,7 @@ const BookCard: React.FC<BookCardProps> = ({
   renderStars,
 }) => {
   return (
-    /*  <div className="imgsDetails">
-       {book.has_fulltext && ( */
+
     <div className="imgsDetails">
       <Link target="_blank" to={`https://openlibrary.org${book.key}/${book.title}`}>
         {book.cover_i && (
@@ -43,8 +42,6 @@ const BookCard: React.FC<BookCardProps> = ({
       </button>
       {isReading && <div className="ratingStars">Betyg: {renderStars(book.key)}</div>}
     </div>
-    /*   )}
-    </div> */
   );
 };
 
