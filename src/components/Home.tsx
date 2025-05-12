@@ -40,7 +40,6 @@ function Home() {
       <div className="BooksContainer">
         {currentBooks.map((book) => (
           <ul key={book.key}>
-            {/* <div> */}
             <li>
               <Link
                 target="_blank"
@@ -63,7 +62,7 @@ function Home() {
                 Betyg: {renderStars(book.key)}
               </div>
             )}
-            {/*  </div> */}
+
           </ul>
         ))}
       </div>

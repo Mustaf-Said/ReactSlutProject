@@ -19,7 +19,7 @@ function Navbar() {
   const { inputValue, handleInputChange, handleSearchSubmit } = context;
 
   const onSubmit = async (e: React.FormEvent) => {
-    await handleSearchSubmit(e); // Pass the event to prevent form reload
+    await handleSearchSubmit(e);
     navigate("/MyBook");
   };
 
