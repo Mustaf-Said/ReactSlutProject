@@ -1,41 +1,77 @@
-.favoriteBooks {
+.favoriteBooksContianer {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: 10px;
-
-  .favoriteSection {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1em;
-  }
-
-  .readingSection {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1em;
-  }
 
   ol {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0 2rem 0;
 
 
-    li {
-      width: 200px;
-    }
+    .favoriteBooks {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 15%;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
 
-    img {
-      width: 100px;
-      height: 150px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      margin: .5em 0;
+      img {
+        width: 120px;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin: .3em auto;
+
+      }
+
+      .deleteButton {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        align-items: start;
+        background-color: #fff;
+        border: 0;
+        font-size: 1rem;
+
+        button {
+          background-color: transparent;
+          border: 0;
+          cursor: pointer;
+          font-size: 1rem;
+
+          &:hover {
+            color: #ef1a0b;
+          }
+        }
+      }
+
+
+      .readButton {
+        background-color: #fff;
+        border: 1px solid #0376b8;
+        width: 50%;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 5px 0 0 0;
+
+
+        &:hover {
+          border: 0;
+        }
+      }
+
+
     }
   }
+
+
 
   .header {
     display: flex;
@@ -45,24 +81,7 @@
     flex-wrap: wrap;
     width: 95%;
     color: #0376b8;
-    margin: 1em auto;
-  }
-
-  .favoriteBook {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .readButton {
-      background-color: #fff;
-      border: 1px solid #0376b8;
-      width: 48%;
-      font-size: 1rem;
-      border-radius: 5px;
-      padding: 5px 0 0 0;
-      margin: 0;
-    }
+    margin: 2rem auto;
   }
 
 }
