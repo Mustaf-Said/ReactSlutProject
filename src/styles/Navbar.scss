@@ -1,33 +1,31 @@
+@use "forwards";
+
 .nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #e1dcc5;
+  @include forwards.flexBox(space-around, row, center);
+  background-color: forwards.$backgroundColor1;
   padding: 1rem 0;
   font-size: large;
 
   img:hover {
     transform: scale(1.1);
     cursor: pointer;
-    box-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 5px forwards.$textColor2;
   }
 
 }
 
 .searchFlt {
-  display: flex;
-  flex-direction: row;
+  @include forwards.flexBox(none, row, none);
   gap: 3px;
 
   input {
-    width: 300px;
-    height: 37px;
+    @include forwards.sizeStyle(300px, 37px, none, 0 0 0 1rem);
+    /*     width: 300px;
+    height: 37px; */
     /* text-align: center; */
     border: none;
     border-radius: 3px;
-    padding-left: 1rem;
+    /*  padding-left: 1rem; */
 
     &:hover {
       transform: scale(1.5);

@@ -1,67 +1,30 @@
-@use "farwords";
-
-/* 
- button {
-      @include farwords.fontStyle(0.75em 1.9em);
-      @include farwords.borderStyle(13px 0 13px 0);
-      background: farwords.$text-color;
-      &:hover {
-        color: farwords.$text-color;
-        background: farwords.$hoverColor;
-      }
-    }
- */
-
-/* 
-header {
-  @include farwords.flexBox(space-between, none);
- }
-   */
+@use "forwards";
 
 .homeContainer {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  width: 100%;
-  background-color: #fff;
-
+  background-color: forwards.$backgroundColor2;
 
   .homeHeader {
-    font-size: 16px;
-    font-weight: 400;
-    color: #02598b;
+    @include forwards.fontStyle(16px, 400, forwards.$textColor1);
     margin-bottom: .5em;
-    margin: 1.75em 0 0 1.5em;
     text-align: left;
-    height: auto;
-
+    @include forwards.sizeStyle(none, auto, 1.75em 0 0 1.5em, none)
   }
 
   .BooksContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #e1dcc5;
-    height: auto;
-    margin: 1.5rem;
-    padding: 3rem;
-    border-radius: .5rem;
+    @include forwards.flexBox(space-between, row, none);
+    background-color: forwards.$backgroundColor1;
+    @include forwards.sizeStyle(none, auto, 1.5rem, 3rem);
+    @include forwards.borderStyle(.5rem, 0);
+
 
     ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 2rem;
-      width: 20%;
+      @include forwards.flexBox(space-between, column, center);
+      @include forwards.sizeStyle(20%, auto, none, 1rem);
       min-width: 200px;
-      height: auto;
 
       img {
-        box-shadow: 1px 2px 5px 0 #c3b683;
-        border-radius: 5px;
+        box-shadow: 1px 2px 5px 0 forwards.$textColor1;
+        @include forwards.borderStyle(5px, 0);
         max-height: 200px;
 
         &:hover {
@@ -72,78 +35,55 @@ header {
       button {
         padding: 8px;
         overflow: hidden;
-        /* background-color: #0376b8;
-        color: #fff; */
-        border-radius: 5px;
+        @include forwards.borderStyle(5px, 0);
         cursor: pointer;
-        border: 0;
-        /*  text-align: center; */
-        /*  margin-top: .5em; */
         max-width: 90%;
       }
 
 
 
       .favoriteButton {
-        background-color: #e1dcc5;
-        font-size: 2rem;
-        color: #0376b8;
+        background-color: forwards.$backgroundColor1;
+        @include forwards.fontStyle(2rem, none, forwards.$textColor1);
         margin-top: auto;
         width: 100%;
 
-        /* padding: 5px 0 0 0; */
         &:hover {
-          color: #fff;
+          color: forwards.$textColor2;
         }
       }
 
       .readButton {
-        background-color: #fff;
-        border:
-          /* 1px solid #0376b8 */
-          none;
-        width: 100%;
+        background-color: forwards.$backgroundColor2;
+        width: 70%;
         font-size: 1.5rem;
-        /* padding: 5px 0 0 0; */
-        margin: 0;
-        border: 1px solid #0376b8;
+        border: 1px solid forwards.$textColor1;
 
         &:hover {
           border: none;
-          background-color: #e1dcc5;
+          background-color: forwards.$backgroundColor1;
         }
       }
 
       .ratingStars {
         button {
-          color: #0376b8;
+          color: forwards.$textColor1;
         }
       }
     }
-  }
 
-  .homeText1,
-  .homeText2,
-  .homeText3 {
-    text-decoration: underline;
-    font-size: 16px;
-    font-weight: 400;
-    color: #02598b;
-    margin: 1.75em 0 .7rem 1.5em;
-    text-align: left;
   }
 
   .paginationControls {
-    display: flex;
-    justify-content: center;
+    @include forwards.flexBox(center, none, none);
     margin-bottom: 1em;
     gap: 2rem;
-    color: #02598b;
+    color: forwards.$textColor1;
 
     button {
       cursor: pointer;
       border: none;
-      background-color: #fff;
+      background-color: forwards.$backgroundColor2;
       font-size: 1rem;
     }
   }

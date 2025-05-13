@@ -1,5 +1,7 @@
+@use "forwards";
+
 body {
-  background-color: #e1dcc5;
+  background-color: forwards.$backgroundColor1;
   min-width: 400px;
 
   h1,
@@ -8,31 +10,21 @@ body {
   h4,
   h5,
   h6 {
-    /*  font-family: "Lucida Grande", Verdana, Geneva, Helvetica, Arial, sans-serif; */
     font-family: Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif;
   }
 }
 
 #root {
-
   max-width: 1060px;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-
-  /*   a {
-    text-decoration: none;
-    color: #000;
-  } */
+  background-color: forwards.$backgroundColor2;
+  @include forwards.sizeStyle(100%, none, 0 auto, none);
 
   ul {
     list-style: none;
   }
 
   .ratingStars {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include forwards.flexBox(none, column, center);
     width: 100%;
 
     button {
@@ -44,19 +36,13 @@ body {
 }
 
 .footerContainer {
-  display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  /* padding: 10px; */
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #e1dcc5;
-  /* text-align: center; */
+  @include forwards.flexBox(space-between, row, none);
+  background-color: forwards.$backgroundColor1;
   width: 100%;
 
   p {
     a {
-      color: #02598b;
+      color: forwards.$textColor1;
     }
   }
 
@@ -65,11 +51,10 @@ body {
 
     p {
       a {
-        color: #02598b;
+        color: forwards.$textColor1;
         text-decoration: none;
       }
     }
-
 
   }
 }

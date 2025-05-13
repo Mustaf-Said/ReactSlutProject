@@ -1,6 +1,7 @@
+@use "forwards";
+
 .myBookContainer {
   width: 100%;
-
 
   h1 {
     color: #333;
@@ -15,14 +16,10 @@
 
   }
 
-
 }
 
 .myBookFooterImg {
   img {
-    width: 100%;
-    height: auto;
-    margin: auto;
-
+    @include forwards.sizeStyle(100%, auto, auto, 0);
   }
 }
