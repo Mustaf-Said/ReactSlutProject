@@ -1,3 +1,23 @@
+@use "farwords";
+
+/* 
+ button {
+      @include farwords.fontStyle(0.75em 1.9em);
+      @include farwords.borderStyle(13px 0 13px 0);
+      background: farwords.$text-color;
+      &:hover {
+        color: farwords.$text-color;
+        background: farwords.$hoverColor;
+      }
+    }
+ */
+
+/* 
+header {
+  @include farwords.flexBox(space-between, none);
+ }
+   */
+
 .homeContainer {
   display: flex;
   flex-direction: column;
