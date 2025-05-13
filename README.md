@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+Hur man tar ner 📥
+Skriv i din terminal eller i din cmd "git clone " dvs repo för den projektet .
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hur man installerar 🛠️
+Skriv först "npm install" i din terminal för att installera npm och skriv sedan "npm install vite-plugin-sass --save-dev install sass" för att installera sass i din terminal.
 
-Currently, two official plugins are available:
+Hur man kompilerar samt kör ditt projekt 🚀
+När du är klar med alla installationer skriv bara i din terminal "npm run dev" för att starta din app och se hur din websida ser ut och fungerar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vilka mappar och filer som finns och vad som är vad 📂
+Jag delade upp TS-filer i två mappar components map och src map. Huvudfilen finns i src-map och andra filar i komponentfil. Min Acces-key finns i Acces-key.ts file och lagt den i gitignore file så man kan inte ser den i githab. Jag delade också html till tre filar och sass till några filar men huvud filen heter app.scss.
 
-## Expanding the ESLint configuration
+Vilket API du använder och vilka URLer du fetchar på 🌐
+API = https://api.unsplash.com/photos/?client_id= min acces-key URL = https://api.unsplash.com/search/photos?per-page=1&query=office i här urlen finns två endpoint per-page och query. URL = https://api.unsplash.com/search/photos?page=1 i här urlen finns en endpoint page.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Exempel på hur man använder API:et med fetch
+const accessKey = "din-access-key";
+const endpoint = "https://api.unsplash.com/photos/?client_id=" + accessKey;
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+fetch(endpoint)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    // Här kan du hantera den data som returneras från API:et
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+API Example
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Vilka teknologier, koncept, ramverk, bibliotek du använder 🧰
+TypeScript TypeScript
+Sass Sass
+Visual Studio Code Visual Studio Code
+Vite Vite
+npm npm
+Länk till din LinkedIn-profil 🔗
+https://www.linkedin.com/in/mustafa-said-b6b164198/
