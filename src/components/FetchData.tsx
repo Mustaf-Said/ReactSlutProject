@@ -18,14 +18,14 @@ function FetchData() {
     console.log("Something went wrong");
     return context;
   }
-
+  //Hämtas data som pcontext
   const { author, toggle, toggleHandler, favorites, toggleFavorite,
     reading, toggleReading, renderStars, isZoomed, handleZoomImg } = context;
 
 
   // Första arrayen i data.
   const book = author[0];
-  //Olika data av bookDetials
+  //Hämtas data som propp
   const { description, numberOfPages, publishDate, languages } = useBookDetails(book.key);
 
   return (

@@ -1,6 +1,5 @@
 import "../styles/display.scss";
-import { createContext } from "react";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Books, BooksType } from "../type/Type";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
@@ -30,8 +29,10 @@ function ContextPrivider({ children }: { children: React.ReactNode }) {
       console.log(error, "Something went wrong with fetching the data.");
     }
   };
-
-
+  // Set a default value for author before searching
+  useEffect(() => {
+    fetchData("The Hobbit");
+  }, []);
   // Input handler
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
