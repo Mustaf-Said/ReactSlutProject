@@ -48,6 +48,7 @@ function Home() {
                 <img
                   src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
                   alt={book.title}
+                  className="page"
                 />
               </Link>
             </li>
