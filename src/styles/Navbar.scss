@@ -20,12 +20,8 @@
 
   input {
     @include forwards.sizeStyle(300px, 37px, none, 0 0 0 1rem);
-    /*     width: 300px;
-    height: 37px; */
-    /* text-align: center; */
     border: none;
     border-radius: 3px;
-    /*  padding-left: 1rem; */
 
     &:hover {
       transform: scale(1.5);
@@ -35,7 +31,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 5px #fff;
+      box-shadow: 0 0 5px forwards.$textColor2;
 
     }
   }
@@ -56,14 +52,13 @@
 
   button {
     padding: 0 1em;
-    border: none;
-    border-radius: 3px;
+    @include forwards.borderStyle(3px, none);
 
     &:hover {
       opacity: 0.5;
       cursor: pointer;
-      box-shadow: 0 0 5px #fff;
-      color: #0376b8;
+      box-shadow: 0 0 5px forwards.$textColor1;
+      color: forwards.$textColor1;
     }
   }
 
@@ -81,36 +76,25 @@
 }
 
 .mynen-toggle-content {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-direction: column;
-  /*  margin-left: 10px; */
+  @include forwards.flexBox(flex-start, column, flex-end);
   position: absolute;
-  /*  border-top: 1px solid #a7a7a7; */
   top: 18px;
   right: 0;
 
 
   li {
-    margin: 1rem auto;
+    @include forwards.sizeStyle(auto, auto, 1rem auto, 0 .5rem 0 0);
     text-align: center;
-    padding-right: .5rem;
   }
 
-  /*  li:hover {
-    transform: scale(1.1);
-
-  }
- */
   a {
     text-decoration: none;
     color: #555353;
     word-break: break-all;
 
     &:hover {
-      color: #fff;
-      box-shadow: 0 0 5px #fff;
+      color: forwards.$textColor2;
+      box-shadow: 0 0 5px forwards.$textColor2;
     }
 
   }
@@ -132,8 +116,6 @@
 
 @media screen and (max-width: 973px) {
   .footerContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include forwards.flexBox(none, column, center);
   }
 }
