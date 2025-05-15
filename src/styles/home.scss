@@ -22,24 +22,16 @@
       @include forwards.sizeStyle(20%, auto, none, 1rem);
       min-width: 200px;
 
-      /*  img {
-        box-shadow: 1px 2px 5px 0 forwards.$textColor1;
-        @include forwards.borderStyle(5px, 0);
-        max-height: 200px;
-
-        &:hover {
-          opacity: 0.3;
-        } */
       .page {
         box-shadow: 1px 2px 5px 0 forwards.$textColor1;
         @include forwards.borderStyle(5px, 0);
         max-height: 200px;
-        /* width: 165px; */
         transition: transform 0.8s ease;
         transform-origin: left center; // Pivot like a page
         backface-visibility: hidden;
         position: relative;
         height: 40vh;
+        width: 160px;
 
         &:hover {
           transform: rotateY(-20deg); // Flip to the left like turning a page

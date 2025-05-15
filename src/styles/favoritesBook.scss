@@ -1,42 +1,28 @@
-.favoriteBooksContianer {
-  display: flex;
-  flex-direction: column;
+@use "forwards";
 
+.favoriteBooksContianer {
   ol {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    @include forwards.flexBox(center, row, center);
     width: 100%;
     padding: 1rem 0 2rem 0;
 
 
     .favoriteBooks {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      @include forwards.flexBox(center, column, center);
       width: 15%;
       min-width: 200px;
       margin-bottom: 1.5rem;
 
       img {
-        width: 120px;
-        height: 150px;
+        @include forwards.sizeStyle(120px, 150px, .3em auto, none);
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        margin: .3em auto;
 
       }
 
       .deleteButton {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-        align-items: start;
-        background-color: #fff;
+        @include forwards.flexBox(space-between, row-reverse, start);
+        background-color: forwards.$backgroundColor2;
         border: 0;
         font-size: 1rem;
 
@@ -54,44 +40,43 @@
 
 
       .readButton {
-        background-color: #fff;
-        border: 1px solid #0376b8;
+        @include forwards.borderStyle(5px, 1px solid forwards.$textColor1);
+        background-color: forwards.$backgroundColor2;
         width: 50%;
         font-size: 1rem;
-        border-radius: 5px;
         padding: 5px 0 0 0;
 
 
         &:hover {
           border: 0;
         }
+
+
       }
 
+      button {
+        color: forwards.$textColor1;
+      }
 
     }
+
+
   }
 
 
-
   .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
-    flex-wrap: wrap;
+    @include forwards.flexBox(space-between, row, end);
     width: 95%;
-    color: #0376b8;
+    color: forwards.$textColor1;
     margin: 2rem auto;
   }
 
 }
 
 hr {
-  width: 100%;
-  margin: auto;
+  @include forwards.sizeStyle(100%, auto, auto, auto);
   color: black;
-  padding-top: 2.6rem;
-  margin: 0;
-  background-color: #e1dcc5;
+  padding-top: 3rem;
+  background-color: forwards.$backgroundColor1;
   border: none;
 }

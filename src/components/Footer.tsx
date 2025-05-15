@@ -17,7 +17,7 @@ function Footer() {
         <p>© 2023 Book Finder. All rights reserved.</p>
         <p>Book App is a web application that helps you find books based on your preferences.</p>
         <p>Privacy Policy | Terms of Service</p>
-        <p>Developed by Studen på FD24</p>
+        <p>Developed by Studen at F24</p>
         <p>Version 1.0.0</p>
       </section>
       <section className="socialMedia">

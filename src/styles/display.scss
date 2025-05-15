@@ -5,29 +5,13 @@
   box-sizing: border-box;
 }
 
-
-/* .display {
-  @include forwards.flexBox(center, column, none); */
-
-/*  display: flex;
-  justify-content: center;
-  flex-direction: column;
- */
 .displaySingleBook {
   @include forwards.flexBox(space-around, row, center);
-  /*   display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap; */
   width: 100%;
 
   .imgDetails {
     @include forwards.flexBox(none, column, center);
-    /*     display: flex;
-    flex-direction: column; */
     perspective: 1000px; // Perspective for 3D effect
-    /*  align-items: center; */
 
     .page {
       width: 165px;
@@ -48,7 +32,6 @@
         z-index: 1;
         position: relative;
         opacity: 1;
-        /*  left: 25%; */
 
       }
     }
@@ -77,11 +60,8 @@
       background-color: forwards.$textColor1;
       color: forwards.$textColor2;
       @include forwards.borderStyle(5px, none);
-      /* border: none;
-      border-radius: 5px; */
       cursor: pointer;
       text-align: center;
-      /* margin-left: .7rem; */
 
       &:hover {
         color: forwards.$textColor1;
@@ -96,8 +76,6 @@
       font-size: 2rem;
       color: forwards.$textColor1;
       @include forwards.sizeStyle(auto, auto, 0, 5px 0 0 0);
-      /* padding: 5px 0 0 0;
-      margin: 0; */
 
       &:hover {
         color: #a2b2ba;
@@ -111,20 +89,16 @@
     }
   }
 
-  /* inte klart än */
-
   .displayBookDetails {
-    display: flex;
-    flex-direction: column;
     width: 60%;
 
     .authorDetails {
       width: 100%;
 
       .readMoreButton {
-        background-color: #fff;
+        background-color: forwards.$backgroundColor2;
         margin-top: .7rem;
-        color: #0376b8;
+        color: forwards.$textColor1;
       }
 
       .authorName {
@@ -132,7 +106,7 @@
         margin-bottom: 1.3rem;
 
         span {
-          color: #02598b;
+          color: forwards.$textColor1;
           text-decoration: underline;
 
         }
@@ -160,24 +134,18 @@
     }
 
     .aboutBookDetails {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
+      @include forwards.flexBox(space-around, row, center);
       width: 100%;
-      flex-wrap: wrap;
       text-align: center;
 
       p {
-        border: 1px solid #5d5e5f;
-        border-radius: 5px;
-        width: 180px;
-        padding: .5em 0;
+        @include forwards.borderStyle(5px, 1px solid #5d5e5f);
+        @include forwards.sizeStyle(180px, none, none, .5em 0);
 
       }
 
       span {
-        color: #0376b8;
+        color: forwards.$textColor1;
       }
     }
 
@@ -192,73 +160,51 @@
   button {
     padding: 8px 40px;
     overflow: hidden;
-    background-color: #0376b8;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    @include forwards.borderStyle(5px, none);
     cursor: pointer;
-    text-align: center;
   }
 }
 
 .sameAuthor {
-  display: flex;
-  justify-content: center;
-  /*  align-items: center; */
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 2rem 0;
-  height: auto;
+  @include forwards.flexBox(center, row, center);
+  @include forwards.sizeStyle(100%, auto, none, 2rem 0);
   gap: 2rem 0;
-  width: 100%;
-  background-color: #e1dcc5;
+  background-color: forwards.$backgroundColor1;
 
   .imgsDetails {
-    display: flex;
-    flex-direction: column;
-    /*  justify-content: center; */
-    flex-wrap: wrap;
-    align-items: center;
-    /* border: 1px solid #0376b8; */
-    /*  margin-bottom: 2rem; */
-    /*   width: 20%; */
-    /* pad: auto; */
-    /* padding: 9px 0; */
+    @include forwards.flexBox(center, column, center);
     min-width: 200px;
     height: auto;
 
     .readButton {
-      background-color: #fff;
-      border: 1px solid #0376b8;
+      background-color: forwards.$backgroundColor2;
+      border: 1px solid forwards.$textColor1;
       width: 100%;
       font-size: 1.5rem;
 
-      /*  padding: 5px 0 0 0; */
       &:hover {
         border: none;
-        background-color: #e1dcc5;
+        background-color: forwards.$backgroundColor1;
       }
     }
 
     .favoriteButton {
-      background-color: #e1dcc5;
+      background-color: forwards.$backgroundColor1;
       font-size: 2rem;
-      color: #0376b8;
-      /*   width: 100%; */
+      color: forwards.$textColor1;
       padding: 0;
       margin-top: auto;
 
       &:hover {
-        color: #fff;
+        color: forwards.$textColor2;
       }
     }
 
     img {
-      box-shadow: 1px 2px 5px 0 #0376b8;
-      border-radius: 3px;
+      box-shadow: 1px 2px 5px 0 forwards.$textColor1;
+      @include forwards.borderStyle(3px, none);
       width: 100%;
       max-height: 200px;
-      border-radius: 3px;
 
       &:hover {
         opacity: 0.3;
@@ -268,10 +214,9 @@
     button {
       padding: 8px;
       overflow: hidden;
-      background-color: #0376b8;
-      color: #0376b8;
-      border: 0;
-      border-radius: 5px;
+      background-color: forwards.$textColor1;
+      color: forwards.$textColor1;
+      @include forwards.borderStyle(5px, none);
       cursor: pointer;
       max-width: 80%;
     }
@@ -279,10 +224,8 @@
 }
 
 .titleH3 {
-  color: #02598b;
+  color: forwards.$textColor1;
   text-align: left;
   margin: 2rem 0 1rem 1rem;
   text-decoration: underline;
 }
-
-/* } */
