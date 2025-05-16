@@ -5,15 +5,8 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { FcReading } from "react-icons/fc";
 import { FaBookReader } from "react-icons/fa";
+import { BookCardProps } from "../type/Type"
 
-interface BookCardProps {
-  book: any;
-  isFavorite: boolean;
-  isReading: boolean;
-  onToggleFavorite: (key: string) => void;
-  onToggleReading: (key: string) => void;
-  renderStars: (key: string) => React.ReactNode;
-}
 
 const BookCard: React.FC<BookCardProps> = ({
   book,

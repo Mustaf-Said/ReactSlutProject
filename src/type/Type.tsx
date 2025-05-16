@@ -30,3 +30,12 @@ export interface BooksType {
   isZoomed: boolean;
   handleZoomImg: React.Dispatch<React.MouseEvent<HTMLImageElement, MouseEvent>>;
 }
+
+export interface BookCardProps {
+  book: any;
+  isFavorite: boolean;
+  isReading: boolean;
+  onToggleFavorite: (key: string) => void;
+  onToggleReading: (key: string) => void;
+  renderStars: (key: string) => React.ReactNode;
+}
