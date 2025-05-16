@@ -1,75 +1,84 @@
-# Projektinstallation & Dokumentation
+# 📚 Projektinstallation & Dokumentation
 
-## 📥 Hur man klonar projektet
-Kör följande kommando i din terminal eller CMD för att klona projektet:
+## 🚀 Kom igång
+
+### 1. Klona projektet
 ```bash
 git clone <repo-url>
 ```
 
-## 🛠️ Installation
-1. Installera beroenden:
-  ```bash
-  npm install
-  ```
-2. Installera Sass och Vite-plugin:
-  ```bash
-  npm install vite-plugin-sass --save-dev
-  npm install sass
-  ```
+### 2. Installera beroenden
+```bash
+npm install
+```
 
-## 🚀 Kompilera & starta projektet
-När installationen är klar, starta projektet med:
+### 3. Installera Sass & Vite-plugin
+```bash
+npm install vite-plugin-sass --save-dev
+npm install sass
+```
+
+### 4. Starta projektet
 ```bash
 npm run dev
 ```
-Detta öppnar din app i webbläsaren.
+Appen öppnas automatiskt i din webbläsare.
 
 ---
 
-## 📂 Mappstruktur & filer
-- **src/**: Huvudmappen för TypeScript-filer.
-- **components/**: Innehåller återanvändbara komponenter.
-- **Access-key.ts**: Din API-nyckel (ligger i `.gitignore` för säkerhet).
-- **HTML-filer**: Uppdelade i tre separata filer.
-- **Sass-filer**: Flera filer, huvudfilen heter `app.scss`.
+## 📁 Mappstruktur
+
+- **src/** – TypeScript-källkod
+- **components/** – Återanvändbara komponenter
+- **Cuntext/** – Global ContextProvider
+- **layout/** – Delar upp sidan i Navbar, Main & Footer
+- **App.tsx** – RouterProvider för sidnavigering
+- **Sass-filer** – Stilmallar, huvudfil: `app.scss`
 
 ---
 
 ## 🌐 API & URL:er
-- **API:** `https://api.unsplash.com/photos/?client_id=<din-access-key>`
-- **Sök-URL:**  
-  `https://api.unsplash.com/search/photos?per_page=1&query=office`  
-  (Endpoints: `per_page`, `query`)
-- **Sida-URL:**  
-  `https://api.unsplash.com/search/photos?page=1`  
-  (Endpoint: `page`)
 
-### Exempel på fetch-anrop:
+- **API:**  
+  `https://openlibrary.org/books/OL7353617M/Fantastic_Mr._Fox`
+- **BookDetails:**  
+  `https://openlibrary.org/works/OL45804W/editions.json`
+- **BookImg:**  
+  `https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg`
+
+#### Exempel på fetch-anrop
 ```typescript
-const accessKey = "din-access-key";
-const endpoint = `https://api.unsplash.com/photos/?client_id=${accessKey}`;
+const endpoint = `https://openlibrary.org/search.json?q=the+lord+of+the+rings`;
 
 fetch(endpoint)
-  .then((response) => response.json())
-  .then((data) => {
-  console.log(data);
-  // Hantera datan här
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    // Hantera datan här
   })
-  .catch((error) => {
-  console.error("Error fetching data:", error);
+  .catch(error => {
+    console.error("Error fetching data:", error);
   });
 ```
 
 ---
 
-## 🧰 Använda teknologier & verktyg
-- **TypeScript**
-- **Sass**
-- **Visual Studio Code**
-- **Vite**
-- **npm**
+## 🛠️ Använda teknologier
+
+- Vite
+- npm
+- Visual Studio Code
 
 ---
 
-## 🔗 LinkedIn-profil
-[https://www.linkedin.com/in/mustafa-said-b6b164198/](https://www.linkedin.com/in/mustafa-said-b6b164198/)
+## 💻 Använda språk
+
+- TypeScript
+- React
+- Sass
+
+---
+
+## 🔗 LinkedIn
+
+[Mustafa Said](https://www.linkedin.com/in/mustafa-said-b6b164198/)
